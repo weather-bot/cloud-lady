@@ -1,0 +1,33 @@
+{
+  "name": "cloudlady",
+  "version": "0.0.0",
+  "description": "Cloud classification service for weather bot",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weather-bot/cloudlady.git"
+  },
+  "keywords": [
+    "cloud",
+    "classification"
+  ],
+  "author": "tigercosmos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weather-bot/cloudlady/issues"
+  },
+  "homepage": "https://github.com/weather-bot/cloudlady#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "node-color-log": "^2.1.1",
+    "sharp": "^0.20.5",
+    "uuid": "^3.3.2"
+  }
+}
