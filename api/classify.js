@@ -23,7 +23,7 @@ app.post('/classify', async (req, res) => {
     }
     
     logger.info(`[${uuid}] return 200`);    
-    return res.status(200).send(result);
+    return res.status(200).json(result);
 })
 
 module.exports = app;
