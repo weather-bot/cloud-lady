@@ -5,7 +5,7 @@ const app = express.Router();
 const logger = require('node-color-log');
 const uuidv1 = require('uuid/v1');
 
-app.post('/moew', async (req, res) => {
+app.post('/meow', async (req, res) => {
     const uuid = uuidv1();
     logger.info(`/api/meow: [${uuid}] new request`);
 
