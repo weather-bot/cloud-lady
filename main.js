@@ -17,17 +17,20 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 // ===== API =====
-app.use('/api', require('./api/classify'));
-app.use('/api', require('./api/meow'));
+app.use(
+    '/api', 
+    require('./api/classify'),
+    require('./api/meow')
+);
 
 // ===== Image =====
-app.get('/img', (req, res)=> {
+app.get('/img', (req, res) => {
     const uuid = req.query.uuid;
     const file = `${uuid}.jpg`;
     res.sendFile(file);
     fs.unlink(file, err => {
         if (err) logger.error(err);
-        logger.info(`/img: [${uuid}] the image delete.`)    
+        logger.info(`/img: [${uuid}] the image delete.`)
     });
 });
 
