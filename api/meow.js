@@ -4,6 +4,7 @@ const express = require('express');
 const app = express.Router();
 const logger = require('node-color-log');
 const uuidv1 = require('uuid/v1');
+const path = require("path");
 
 app.post('/meow', async (req, res) => {
     const uuid = uuidv1();
