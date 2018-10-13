@@ -1,10 +1,15 @@
 'use strict';
-// ===== Express =====
+// ===== HTTP  =====
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+const privateKey  = fs.readFileSync('ssl/serverkey.pem', 'utf8');
+const certificate = fs.readFileSync('ssl/servercert.pem', 'utf8');
+const credentials = {key: privateKey, cert: certificate};
 const express = require('express');
 const app = express();
 
 // ===== Require Packages ======
-const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -43,7 +48,8 @@ app.get('/', (req, res) => {
 });
 
 // =====  Port =====
-const port = 8000;
-const server = app.listen(port, () => {
-    logger.info(`Web server listening on: ${port}`);
-});
+const  httpServer = http.createServer(app);
+const  httpsServer = https.createServer(credentials, app);
+
+httpServer.listen(8000);
+httpsServer.listen(8443);
