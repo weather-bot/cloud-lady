@@ -3,9 +3,12 @@
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
-const privateKey  = fs.readFileSync('ssl/private.key', 'utf8');
+const privateKey = fs.readFileSync('ssl/private.key', 'utf8');
 const certificate = fs.readFileSync('ssl/ce.crt', 'utf8');
-const credentials = {key: privateKey, cert: certificate};
+const credentials = {
+    key: privateKey,
+    cert: certificate
+};
 const express = require('express');
 const app = express();
 
@@ -24,7 +27,7 @@ app.use(cors());
 
 // ===== API =====
 app.use(
-    '/api', 
+    '/api',
     require('./api/classify'),
     require('./api/meow')
 );
@@ -37,8 +40,8 @@ app.get('/img', (req, res) => {
     setTimeout(() => {
         fs.unlink(file, err => {
             if (err) logger.error(err);
-                logger.info(`/img: [${uuid}] the image delete.`)
-   	});
+            logger.info(`/img: [${uuid}] the image delete.`)
+        });
     }, 60000);
 });
 
@@ -48,8 +51,8 @@ app.get('/', (req, res) => {
 });
 
 // =====  Port =====
-const  httpServer = http.createServer(app);
-const  httpsServer = https.createServer(credentials, app);
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
 
 httpServer.listen(80);
 httpsServer.listen(443);
