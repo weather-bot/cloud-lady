@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 
 // ===== Require Packages ======
+const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -27,11 +28,13 @@ app.use(
 app.get('/img', (req, res) => {
     const uuid = req.query.uuid;
     const file = `${uuid}.jpg`;
-    res.sendFile(file);
-    fs.unlink(file, err => {
-        if (err) logger.error(err);
-        logger.info(`/img: [${uuid}] the image delete.`)
-    });
+    res.sendFile(path.join(__dirname, file));
+    setTimeout(() => {
+        fs.unlink(file, err => {
+            if (err) logger.error(err);
+                logger.info(`/img: [${uuid}] the image delete.`)
+   	});
+    }, 60000);
 });
 
 // ===== Front End =====

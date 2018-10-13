@@ -3,6 +3,8 @@
 const express = require('express');
 const app = express.Router();
 const logger = require('node-color-log');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec)
 const uuidv1 = require('uuid/v1');
 const path = require("path");
 
