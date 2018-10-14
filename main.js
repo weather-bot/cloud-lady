@@ -1,10 +1,11 @@
 'use strict';
 // ===== HTTP  =====
 const fs = require('fs');
+const config = require('./config');
 const http = require('http');
 const https = require('https');
-const privateKey = fs.readFileSync('ssl/private.key', 'utf8');
-const certificate = fs.readFileSync('ssl/ce.crt', 'utf8');
+const privateKey = fs.readFileSync(config.key, 'utf8');
+const certificate = fs.readFileSync(config.ce, 'utf8');
 const credentials = {
     key: privateKey,
     cert: certificate
