@@ -17,7 +17,7 @@ app.post('/meow', async (req, res) => {
     const meow = path.join(__dirname, '../meow');
     const outputFile = path.join(__dirname, `../${uuid}.jpg`);
     // cats is the images folder, and 27 is quantity.
-    const command = `${meow} bottom-mode cats/${Math.floor(Math.random()*27)}.jpg '${JSON.stringify(info)}' -o ${outputFile}`;
+    const command = `${meow} bottom-mode cats/${Math.floor(Math.random()*48)}.jpg '${JSON.stringify(info)}' -o ${outputFile}`;
     const {
         stdout,
         stderr
