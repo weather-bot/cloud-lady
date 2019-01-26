@@ -1,4 +1,9 @@
 /node_modules/
 *.pyc
 *.pb
+*.jpg
 .DS_Store
+log*
+ssl
+static
+meow
