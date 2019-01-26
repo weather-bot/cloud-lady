@@ -19,7 +19,7 @@ app.post('/meow', async (req, res) => {
     const outputFile = path.join(__dirname, `../${uuid}.jpg`);
     const imgs = fs.readdirSync(path.join(__dirname, '../cats')).filter((elm) => elm.match(/\.jpg$/));
     const img = imgs[Math.floor(Math.random() * (imgs.length))];
-    const command = `${meow} bottom-mode ${img} '${JSON.stringify(info)}' -o ${outputFile}`;
+    const command = `${meow} bottom-mode cats/${img} '${JSON.stringify(info)}' -o ${outputFile}`;
     const {
         stdout,
         stderr
@@ -45,7 +45,7 @@ app.post('/chinese', async (req, res) => {
     const outputFile = path.join(__dirname, `../${uuid}.jpg`);
     const imgs = fs.readdirSync(path.join(__dirname, '../chinese-img')).filter((elm) => elm.match(/\.jpg$/));
     const img = imgs[Math.floor(Math.random() * (imgs.length))];
-    const command = `${meow} chinese-mode ${img} '${JSON.stringify(info)}' -o ${outputFile}`;
+    const command = `${meow} chinese-mode chinese-img/${img} '${JSON.stringify(info)}' -o ${outputFile}`;
     const {
         stdout,
         stderr
