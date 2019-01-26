@@ -7,6 +7,7 @@ const util = require('util');
 const exec = util.promisify(require('child_process').exec)
 const uuidv1 = require('uuid/v1');
 const path = require("path");
+const fs = require("fs");
 
 app.post('/meow', async (req, res) => {
     const uuid = uuidv1();
@@ -36,7 +37,7 @@ app.post('/meow', async (req, res) => {
 
 app.post('/chinese', async (req, res) => {
     const uuid = uuidv1();
-    logger.info(`/api/meow: [${uuid}] new request`);
+    logger.info(`/api/chinese: [${uuid}] new request`);
 
     const info = req.body;
 
